@@ -1,9 +1,25 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Configuration, OpenAIApi } from "openai";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openAi = new OpenAIApi(configuration);
+
+  async function askGpt(prompt) {
+    const completion = await openAi.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+    });
+    return completion.data.choices[0].message.content;
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
