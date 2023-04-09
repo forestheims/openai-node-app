@@ -30,11 +30,13 @@ export default function Home() {
   }
 
   return (
+  <>
     <main className="flex min-h-screen flex-col items-center justify-start gap-20 p-24">
+      <h1>simple openai node app</h1>
       <form onSubmit={(e) => submitForm(e)}>
 
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm flex gap-40">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        <p className="fixed left-0 top-0 flex w-full items-center justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by typing a prompt:&nbsp;
           <input type="text" className="font-mono font-bold p-2 rounded-full" value={userInput} onChange={(e) => setUserInput(e.target.value)}></input>
         </p>
@@ -64,5 +66,7 @@ export default function Home() {
       </div>}
 
     </main>
+    <footer className='flex items-center justify-center gap-2 p-2'>created by{' '}<a className='hover:underline' href='https://github.com/forestheims' target='_blank'>forestheims</a></footer>
+  </>
   )
 }
